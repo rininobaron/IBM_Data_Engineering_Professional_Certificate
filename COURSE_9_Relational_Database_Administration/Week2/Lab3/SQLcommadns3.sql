@@ -27,3 +27,13 @@ cat world_countrylanguage_mysql_backup.sql
 
 --Drop table world.countrylanguage
 mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="DROP TABLE world.countrylanguage;"
+
+--Verify
+mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="SHOW TABLES FROM world;"
+
+--Restore table previous deleted
+mysql --host=127.0.0.1 --port=3306 --user=root --password world < world_countrylanguage_mysql_backup.sql
+
+--Again retriev all the Canada countries
+mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="SELECT * FROM world.countrylanguage WHERE CountryCode = 'CAN' LIMIT 7;"
+
