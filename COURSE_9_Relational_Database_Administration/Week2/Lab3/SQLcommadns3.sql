@@ -18,3 +18,6 @@ SOURCE world_mysql_update_A.sql;
 
 --Query the table in order to verify-
 SELECT * FROM country;
+
+--Make backup
+mysqldump --host=127.0.0.1 --port=3306 --user=root --password world countrylanguage > world_countrylanguage_mysql_backup.sql
