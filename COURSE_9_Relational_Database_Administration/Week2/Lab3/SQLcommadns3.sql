@@ -11,11 +11,10 @@ SOURCE world_mysql_script.sql;
 SHOW TABLES;
 
 --Retrieve all records (rows) from Canada in countrylanguages table
-SELECT * FROM countrylanguage WHERE countrycode = 'CAN'
+SELECT * FROM countrylanguage WHERE countrycode = 'CAN';
 
---	insert new records to table 'wordl' loaded from world_mysql_update_A.sql file
+--	insert new records into 'country' and 'contrylanguage' tables loaded from world_mysql_update_A.sql file
 SOURCE world_mysql_update_A.sql;
 
 --Query the table in order to verify-
-SELECT * FROM world;
-
+SELECT * FROM country;
