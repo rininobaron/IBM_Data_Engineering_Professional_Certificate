@@ -21,3 +21,9 @@ SELECT * FROM country;
 
 --Make backup
 mysqldump --host=127.0.0.1 --port=3306 --user=root --password world countrylanguage > world_countrylanguage_mysql_backup.sql
+
+--View content files
+cat world_countrylanguage_mysql_backup.sql
+
+--Drop table world.countrylanguage
+mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="DROP TABLE world.countrylanguage;"
