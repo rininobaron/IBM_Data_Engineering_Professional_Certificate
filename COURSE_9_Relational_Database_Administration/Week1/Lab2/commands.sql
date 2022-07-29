@@ -50,6 +50,12 @@ SELECT User FROM user;
 --create new user
 CREATE USER test_user;
 
+--view all databases
+SHOW DATABASES;
+
+--Connect to the information_schema database
+USE information_schema;
+
 --Exercise 4: Try it Yourself!
 
 --PROBLEM 1

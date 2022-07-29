@@ -37,3 +37,35 @@ mysql --host=127.0.0.1 --port=3306 --user=root --password world < world_countryl
 --Again retriev all the Canada countries
 mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="SELECT * FROM world.countrylanguage WHERE CountryCode = 'CAN' LIMIT 7;"
 
+--Example Exercise B
+
+--Download file
+
+--Create logical backup of full world database
+mysqldump --host=127.0.0.1 --port=3306 --user=root --password --flush-logs --delete-master-logs  --databases world > world_mysql_full_backup.sql
+
+--Insert new records in table 'city'
+source world_mysql_update_B.sql;
+
+--New Query
+SELECT * FROM city WHERE countrycode='CAN';
+
+--Practice Exercise 1
+--Perform logical backup of the table ciyt from the database world.
+CREATE DATABASE world_P1;
+
+USE world_P1;
+
+SOURCE world_mysql_script.sql;
+
+SELECT * FROM city WHERE CountryCode = 'BGD';
+
+--Logicak backup
+mysqldump --host=127.0.0.1 --port=3306 --user=root --password --flush-logs --delete-master-logs  --databases world_P1 > world_P1_mysql_full_backup.sql
+
+--Drop
+mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="DROP TABLE world_P1.city;"
+
+mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="SELECT * FROM world_P1.city;"
+
+mysql --host=127.0.0.1 --port=3306 --user=root --password world_P1 < world_P1_city_mysql_backup.sql
