@@ -30,7 +30,6 @@ UPDATE pg_tables SET tablename = 'aircraft_fleet' WHERE tablename = 'aircrafts_d
 --in the CLI:
 ALTER TABLE aircrafts_data RENAME TO aircraft_fleet;
 
---3.- Try it yourself: To confirm that the table
 --was successfully renamed, query pg_tables from
 --the system catalog by schemaname 'bookings' to 
 --display the tablename column.
