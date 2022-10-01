@@ -2,11 +2,11 @@
 
 --4. In the Terminal, create a new database called world.
 --EXTRA 
-mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="SHOW DATABASES;"
+SHOW DATABASES
 --ANSWER
-mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="CREATE DATABASE world;"
+CREATE DATABASE world;
 --EXTRA
-mysql --host=127.0.0.1 --port=3306 --user=root --password --execute="SHOW DATABASES;"
+SHOW DATABASES;
 
 --5. Now, we'll want to use the newly created database, world. How can we go about doing that?
 USE world;
