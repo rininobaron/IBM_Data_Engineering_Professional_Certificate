@@ -70,3 +70,10 @@ sudo systemctl status postgresql.service
 
 --Task B: Test the Performance of the Server
 
+--2.- Try it yourself: Use the CLI to connect to the demo database.
+\connect demo
+
+--3.- To inspect how long each query or command takes, 
+--enable the timer with the following command in the CLI:
+\timing
+
