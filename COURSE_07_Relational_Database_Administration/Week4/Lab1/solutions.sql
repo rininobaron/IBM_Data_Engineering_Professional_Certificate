@@ -77,3 +77,33 @@ sudo systemctl status postgresql.service
 --enable the timer with the following command in the CLI:
 \timing
 
+--5.- Let's try something a little more computationally heavy 
+--and see how the server handles it. The following command goes 
+--through each element in the boarding_passes table and 
+--reassigns each value to itself. In other words,
+--it does not change the table 
+--but allows you to see how the server handles 
+--this task. Enter the following into the CLI:
+
+UPDATE boarding_passes SET ticket_no = ticket_no, flight_id = flight_id, boarding_no = boarding_no, seat_no = seat_no;
+
+--Exercise 5: Try it Yourself!
+
+--1.- Try it yourself: Restart the PostgreSQL server.
+--LINUX TERMINAL
+./restart_psql_server.sh
+
+--2.- Try it yourself: Compare the performance of querying 
+--the aircrafts_data table now compared to before changing 
+--the configuration parameters.
+
+--connect to database
+\connect demo
+
+--Activate timing
+\timing
+
+SELECT * FROM aircrafts_data;
+
+--4.- Try it yourself: Finally, test to confirm that the server can now handle 
+--at least 5 connections.
