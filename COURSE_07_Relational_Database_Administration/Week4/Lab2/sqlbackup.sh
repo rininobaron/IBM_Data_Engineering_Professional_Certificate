@@ -7,12 +7,12 @@ DATABASE='sakila'
 echo "Pulling Database: This may take a few minutes"
 
 # Set the folder where the database backup will be stored
-backupfolder=/home/theia/backups
+backupfolder=/backups
 
 # Number of days to store the backup 
 keep_day=30
 
-sqlfile=$backupfolder/all-database-$(date +%d-%m-%Y_%H-%M-%S).sql
+sqlfildire=$backupfolder/all-database-$(date +%d-%m-%Y_%H-%M-%S).sql
 zipfile=$backupfolder/all-database-$(date +%d-%m-%Y_%H-%M-%S).gz
 
 # Create a backup
