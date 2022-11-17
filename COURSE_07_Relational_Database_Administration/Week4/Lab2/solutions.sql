@@ -34,3 +34,19 @@ SHOW FULL TABLES WHERE table_type = 'BASE TABLE';
 --Task C: Understanding the Process 
 --Involved in Creating MySQL Database 
 --Backups
+
+--Task D: Creating a Shell Script for MySQL 
+--Database Backups
+
+--LINUX TERMINAL
+sudo chmod u+x+r sqlbackup.sh
+
+mkdir backups
+
+--Task E: Setting Up a Cron Job
+
+--Enable privileges to user in MYSQL
+
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
