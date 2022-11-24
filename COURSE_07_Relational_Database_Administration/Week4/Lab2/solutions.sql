@@ -50,3 +50,14 @@ mkdir backups
 CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
 
 GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
+
+--My mysql and linux version is  'mysql  Ver 8.0.31-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))'
+--that's why I copy and paste the following lines of code on my.cnf that is often located 
+--on /etc/mysql/...
+--[client]
+--user = userName
+--password = "MyPassword"
+
+--If you have any error edit the sqlbackup.sh file adding --user=userNAme 
+--on mysqldump statement
+
