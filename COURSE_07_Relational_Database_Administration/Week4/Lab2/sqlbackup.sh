@@ -17,10 +17,10 @@ zipfile=$backupfolder/all-database-$(date +%d-%m-%Y_%H-%M-%S).gz
 
 # Create a backup
 
-if mysqldump $DATABASE > $sdqlfile ; then
+if mysqldump "$DATABASE" > "$sdqlfile" ; then
    echo 'Sql dump created'
     # Compress backup 
-    if gzip -c $sqlfile > $zipfile; then
+    if gzip -c "$sqlfile" > "$zipfile"; then
         echo 'The backup was successfully compressed'
     else
         echo 'Error compressing backupBackup was not created!' 
