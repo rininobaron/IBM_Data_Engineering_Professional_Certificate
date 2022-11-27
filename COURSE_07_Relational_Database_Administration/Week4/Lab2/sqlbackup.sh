@@ -21,7 +21,7 @@ if mysqldump "$DATABASE" > "$sqlfile" ; then
    echo 'Sql dump created'
     # Compress backup 
     if gzip -c "$sqlfile" > "$zipfile"; then
-        echo 'The backup was successfully compressed'
+        echo 'The backup was successfully compressed' $sqlfile
     else
         echo 'Error compressing backupBackup was not created!' 
         exit
