@@ -7,7 +7,7 @@ DATABASE='sakila'
 echo "Pulling Database: This may take a few minutes"
 
 # Set the folder where the database backup will be stored
-backupfolder=backups
+backupfolder=/home/ricardo/IBM_Data_Engineering_Professional_Certificate/COURSE_07_Relational_Database_Administration/Week4/Lab2/backups
 
 # Number of days to store the backup 
 keep_day=30
