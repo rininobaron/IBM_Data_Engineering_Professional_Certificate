@@ -56,7 +56,7 @@ transform = BashOperator(
     dag=dag,
 )
 
-# define the second task
+# define the fourth task
 load = BashOperator(
     task_id='load',
     bash_command='tr "#" "," < /home/ricardo/airflow/dags/extracted-data.txt > /home/ricardo/airflow/dags/transformed-data.csv',
