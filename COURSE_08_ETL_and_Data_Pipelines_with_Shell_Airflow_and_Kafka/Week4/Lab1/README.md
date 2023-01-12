@@ -8,7 +8,7 @@ Kafka and ZooKeeper
 
 3. Open a new terminal again and execute PART_3_Create_topic.sh on it.
 
-4. Execute PART_4_Start_Producer.sh (yo can use the previous terminal)
+4. Execute PART_4_Start_Producer.sh (you can use the previous terminal)
 
 5. Open a new terminal and execute PART_5_Start_Consumer.sh
 
