@@ -77,7 +77,7 @@ consolidate_data = BashOperator(
 
 transform_data = BashOperator(
     task_id='transform-data',
-    bash_command='paste -d"," <(cat extracted_data.csv | cut -d"," -f1-3) <(cat extracted_data.csv | cut -d"," -f4 | tr '[:lower:]' '[:upper:]') <(cat extracted_data.csv | cut -d"," -f5-9) > transformed_data.csv',
+    bash_command='paste -d"," <(cat extracted_data.csv | cut -d"," -f1-3) <(cat extracted_data.csv | cut -d"," -f4 | tr "[:lower:]" "[:upper:]") <(cat extracted_data.csv | cut -d"," -f5-9) > transformed_data.csv',
     dag=dag,
 )
 
