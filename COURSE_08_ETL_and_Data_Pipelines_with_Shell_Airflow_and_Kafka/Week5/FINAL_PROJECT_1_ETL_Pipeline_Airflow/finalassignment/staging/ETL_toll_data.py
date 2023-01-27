@@ -20,7 +20,6 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-
 # Define the DAG
 
 dag = DAG(
@@ -30,14 +29,17 @@ dag = DAG(
     schedule_interval=timedelta(days=1),
 )
 
-
 # Define the tasks
+
+staging_path = "/home/ricardo/IBM_Data_Engineering_Professional_Certificate/COURSE_08_ETL_and_Data_Pipelines_with_Shell_Airflow_and_Kafka/Week5/FINAL_PROJECT_1_ETL_Pipeline_Airflow/finalassignment/staging/"
+
+url = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Final%20Assignment/tolldata.tgz"
 
 # Dedine the first task (unzip data)
 
 unzip_data = BashOperator(
     task_id='unzip-data',
-    bash_command='tar zxvf tolldata.tgz',
+    bash_command='wget -O '+staging_path+'tolldata.tgz '+url+'; tar zxvf '+staging_path+'tolldata.tgz -C '+staging_path,
     dag=dag,
 )
 
@@ -45,7 +47,7 @@ unzip_data = BashOperator(
 
 extract_data_from_csv = BashOperator(
     task_id='extract-data-from-csv',
-    bash_command='cut -d"," -f1-4 vehicle-data.csv > csv_data.csv',
+    bash_command='cut -d"," -f1-4 '+staging_path+'vehicle-data.csv > '+staging_path+'csv_data.csv',
     dag=dag,
 )
 
@@ -53,7 +55,7 @@ extract_data_from_csv = BashOperator(
 
 extract_data_from_tsv = BashOperator(
     task_id='extract-data-from-tsv',
-    bash_command='dos2unix tollplaza-data.tsv; cat tollplaza-data.tsv | tr -s "\\t" "," | cut -d"," -f5-7 > tsv_data.csv',
+    bash_command='dos2unix '+staging_path+'tollplaza-data.tsv; cat '+staging_path+'tollplaza-data.tsv | tr -s "\\t" "," | cut -d"," -f5-7 > '+staging_path+'tsv_data.csv',
     dag=dag,
 )
 
@@ -61,7 +63,7 @@ extract_data_from_tsv = BashOperator(
 
 extract_data_from_fixed_width = BashOperator(
     task_id='extract-data-from-fixed-width',
-    bash_command='rev payment-data.txt | cut -d" " -f1,2 | rev |  tr -s " " "," > fixed_width_data.csv',
+    bash_command='rev '+staging_path+'payment-data.txt | cut -d" " -f1,2 | rev |  tr -s " " "," > '+staging_path+'fixed_width_data.csv',
     dag=dag,
 )
 
@@ -69,7 +71,7 @@ extract_data_from_fixed_width = BashOperator(
 
 consolidate_data = BashOperator(
     task_id='consolidate-data',
-    bash_command='paste -d"," csv_data.csv tsv_data.csv fixed_width_data.csv > extracted_data.csv',
+    bash_command='paste -d"," '+staging_path+'csv_data.csv '+staging_path+'tsv_data.csv '+staging_path+'fixed_width_data.csv > '+staging_path+'extracted_data.csv',
     dag=dag,
 )
 
@@ -77,7 +79,7 @@ consolidate_data = BashOperator(
 
 transform_data = BashOperator(
     task_id='transform-data',
-    bash_command='paste -d"," <(cat extracted_data.csv | cut -d"," -f1-3) <(cat extracted_data.csv | cut -d"," -f4 | tr "[:lower:]" "[:upper:]") <(cat extracted_data.csv | cut -d"," -f5-9) > transformed_data.csv',
+    bash_command='paste -d"," <(cat '+staging_path+'extracted_data.csv | cut -d"," -f1-3) <(cat '+staging_path+'extracted_data.csv | cut -d"," -f4 | tr "[:lower:]" "[:upper:]") <(cat '+staging_path+'extracted_data.csv | cut -d"," -f5-9) > '+staging_path+'transformed_data.csv',
     dag=dag,
 )
 
