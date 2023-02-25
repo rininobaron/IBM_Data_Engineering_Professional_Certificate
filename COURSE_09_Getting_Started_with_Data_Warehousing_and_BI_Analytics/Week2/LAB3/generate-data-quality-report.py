@@ -12,7 +12,7 @@ from dataqualitychecks import check_for_duplicates
 from dataqualitychecks import run_data_quality_check
 
 # connect to database
-pgpassword = os.environ.get('POSTGRES_PASSWORD')
+pgpassword = input("Postgres password: ")
 conn = psycopg2.connect(
 		user = "postgres",
 	    password = pgpassword,
