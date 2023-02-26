@@ -46,3 +46,13 @@ test5={
 	"table": "DimMonth"
 }
 
+
+test6={
+	"testname":"Check for min and max",
+	"test":check_for_min_max,
+	"column": "quarter",
+	"table": "DimMonth",
+	"minimum":1,
+	"maximum":4
+}
+
