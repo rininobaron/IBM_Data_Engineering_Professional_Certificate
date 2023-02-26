@@ -64,3 +64,10 @@ test7={
 	"table": "DimMonth",
 	"valid_values":{"Q1","Q2","Q3","Q4"}
 }
+
+test8={
+	"testname":"Check for duplicates",
+	"test":check_for_duplicates,
+	"column": "customerid",
+	"table": "DimCustomer"
+}
