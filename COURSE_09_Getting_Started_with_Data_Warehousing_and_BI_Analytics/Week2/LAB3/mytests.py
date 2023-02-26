@@ -71,3 +71,25 @@ test8={
 	"column": "customerid",
 	"table": "DimCustomer"
 }
+
+test9={
+	"testname":"Check for nulls",
+	"test":check_for_nulls,
+	"column": "billedamount",
+	"table": "FactBilling"
+}
+
+test10={
+	"testname":"Check for duplicates",
+	"test":check_for_duplicates,
+	"column": "billid",
+	"table": "FactBilling"
+}
+
+test11={
+	"testname":"Check for valid values",
+	"test":check_for_valid_values,
+	"column": "quarter",
+	"table": "DimMonth",
+	"valid_values":{1,2,3,4}
+}
