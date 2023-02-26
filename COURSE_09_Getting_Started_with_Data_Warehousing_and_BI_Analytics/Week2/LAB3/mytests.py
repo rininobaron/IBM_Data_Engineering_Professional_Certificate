@@ -38,3 +38,11 @@ test4={
 	"table": "DimMonth"
 }
 
+
+test5={
+	"testname":"Check for nulls",
+	"test":check_for_nulls,
+	"column": "year",
+	"table": "DimMonth"
+}
+
