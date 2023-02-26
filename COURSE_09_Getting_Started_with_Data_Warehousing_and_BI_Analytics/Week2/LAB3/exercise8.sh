@@ -8,12 +8,11 @@ sleep 1
 echo "Add test8 in mytests.py file"
 file="mytests.py"
 echo '
-test7={
-	"testname":"Check for valid values",
-	"test":check_for_valid_values,
-	"column": "quartername",
-	"table": "DimMonth",
-	"valid_values":{"Q1","Q2","Q3","Q4"}
+test8={
+	"testname":"Check for duplicates",
+	"test":check_for_duplicates,
+	"column": "customerid",
+	"table": "DimCustomer"
 }' >> $file
 echo ""
 sleep 2
