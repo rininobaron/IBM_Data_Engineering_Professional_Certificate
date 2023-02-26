@@ -56,3 +56,11 @@ test6={
 	"maximum":4
 }
 
+
+test7={
+	"testname":"Check for valid values",
+	"test":check_for_valid_values,
+	"column": "quartername",
+	"table": "DimMonth",
+	"valid_values":{"Q1","Q2","Q3","Q4"}
+}
