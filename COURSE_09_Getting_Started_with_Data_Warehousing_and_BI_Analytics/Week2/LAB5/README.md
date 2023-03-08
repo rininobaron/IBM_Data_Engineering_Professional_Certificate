@@ -1,3 +1,9 @@
 # Hands-on Lab: Populating a Data Warehouse using PostgreSQL
 
+Execute downlawder.sh in order to download necessary files.
+./downloader.dh
+
+Exectute ereaser.sh in order to delete sql files
+./ereaser.sh
+
 [LAB link](https://author-ide.skills.network/render?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZF9pbnN0cnVjdGlvbnNfdXJsIjoiaHR0cHM6Ly9jZi1jb3Vyc2VzLWRhdGEuczMudXMuY2xvdWQtb2JqZWN0LXN0b3JhZ2UuYXBwZG9tYWluLmNsb3VkL0lCTS1EQjAyNjBFTi1Ta2lsbHNOZXR3b3JrL2xhYnMvQklXb3JrYXJvdW5kRmlsZXMvd2VlazIvUG9wdWxhdGluZ19kYXRhd2FyZWhvdXNlX3dpdGhfcG9zdGdyZXMubWQiLCJ0b29sX3R5cGUiOiJ0aGVpYSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjY4NTg1MTY5fQ.S15tPm9DFexhJp-3xiQsG8MHOAsJkVmaOTjhIwgdmbE)
