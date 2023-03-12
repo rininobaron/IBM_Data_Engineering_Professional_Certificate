@@ -6,12 +6,12 @@ file = "CustomerLoyaltyProgram.csv"
 
 df = pd.read_csv(file)
 
-def fix_column(raw_list):
+def column_to_float(raw_list):
 	final_list = []
 	while len(raw_list)>0:
 		if "float" in str(type(raw_list[0])):
+			final_list.append(raw_list[0])
 			raw_list.pop(0)
-			final_list.append(temp)
 			continue
 		temp = ""
 		for letter in raw_list[0]:
@@ -22,18 +22,23 @@ def fix_column(raw_list):
 		raw_list.pop(0)
 	return final_list
 
-final_list1 = fix_column(df["Unit Sale Price"].tolist())
-final_list2 = fix_column(df["Unit Cost"].tolist())
+def column_to_int(raw_list):
+	final_list = raw_list.astype("int", errors = "ignore")
+	return final_list
 
-if len(final_list1) == len(df["Unit Sale Price"].tolist()):
-	if len(final_list2) == len(df["Unit Cost"].tolist()):
-		print("SUCCESS!")
-	else:
-		print("ERROR!")
+final_list1 = column_to_float(df["Revenue"].tolist())
+final_list2 = column_to_float(df["Unit Sale Price"].tolist())
+final_list3 = column_to_float(df["Unit Cost"].tolist())
+final_list4 = column_to_int(df["Order Year"])
+
+if len(final_list1) == len(df["Revenue"].tolist()) and len(final_list2) == len(df["Unit Sale Price"].tolist()) and len(final_list3) == len(df["Unit Cost"].tolist()) and len(final_list4) == len(df["Order Year"]):
+	print("SUCCESS!")
 else:
 	print("ERROR!")
 	exit()
 
-df["Unit Sale Price"] = final_list1
-df["Unit Cost"] = final_list2
+df["Revenue"] = final_list1
+df["Unit Sale Price"] = final_list2
+df["Unit Cost"] = final_list3
+df["Order Year"] = final_list4
 df.to_csv(file, index=False)
