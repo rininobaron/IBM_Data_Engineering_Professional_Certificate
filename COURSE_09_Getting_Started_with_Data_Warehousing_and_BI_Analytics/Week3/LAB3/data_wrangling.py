@@ -22,16 +22,23 @@ def column_to_float(raw_list):
 		raw_list.pop(0)
 	return final_list
 
-def column_to_int(raw_list):
-	final_list = raw_list.astype("int", errors = "ignore")
+def column_to_str(raw_list):
+	final_list = []
+	while len(raw_list)>0:
+		try:
+			final_list.append(int(raw_list[0]))
+			raw_list.pop(0)
+		except:
+			final_list.append(raw_list[0])
+			raw_list.pop(0)
 	return final_list
 
 final_list1 = column_to_float(df["Revenue"].tolist())
 final_list2 = column_to_float(df["Unit Sale Price"].tolist())
 final_list3 = column_to_float(df["Unit Cost"].tolist())
-final_list4 = column_to_int(df["Order Year"])
+final_list4 = column_to_str(df["Order Year"].tolist())
 
-if len(final_list1) == len(df["Revenue"].tolist()) and len(final_list2) == len(df["Unit Sale Price"].tolist()) and len(final_list3) == len(df["Unit Cost"].tolist()) and len(final_list4) == len(df["Order Year"]):
+if len(final_list1) == len(df["Revenue"].tolist()) and len(final_list2) == len(df["Unit Sale Price"].tolist()) and len(final_list3) == len(df["Unit Cost"].tolist()) and len(final_list4) == len(df["Order Year"].tolist()):
 	print("SUCCESS!")
 else:
 	print("ERROR!")
