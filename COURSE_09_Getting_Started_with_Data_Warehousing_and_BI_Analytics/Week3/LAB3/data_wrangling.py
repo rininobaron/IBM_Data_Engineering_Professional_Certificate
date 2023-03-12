@@ -26,7 +26,7 @@ def column_to_str(raw_list):
 	final_list = []
 	while len(raw_list)>0:
 		try:
-			final_list.append(int(raw_list[0]))
+			final_list.append(str(int(raw_list[0])))
 			raw_list.pop(0)
 		except:
 			final_list.append(raw_list[0])
