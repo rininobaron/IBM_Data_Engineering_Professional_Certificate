@@ -40,6 +40,7 @@ CREATE TABLE public."MyDimZone"
 CREATE TABLE public."MyFactTrips"
 (
     tripid int NOT NULL,
+    dateid int NOT NULL,
     wastetypeid int NOT NULL,
     zoneid int NOT NULL,
     wastetons int NOT NULL,
