@@ -1,0 +1,52 @@
+Exercise 1 - Design a Data Warehouse
+
+Task 1 - Design the dimension table MyDimDate
+
+Field Name
+---------------|-------------------------------------------------------------------------
+dateid         |Primary Key - Id of the date
+day            |Day derived from the date field of the original data. Example: 13, 19
+weekday        |Weekday derived from the date field of the original data.
+               |Example: 1, 2, 3, 4, 5, 6, 7. 1 for sunday, 7 for saturday
+weekdayname    |Weekday name derived from the date field of the original data.
+               |Example: Sunday, Monday
+year           |Year derived from the date field of the original data. Example: 2010
+month          |Month number derived from the date field of the original data.
+               |Example: 1, 2, 3
+monthname      |Month name derived from the date field of the original data.
+               |Example: March
+quarter        |Quarter number derived from the date field of the original data. 
+               |Example: 1, 2, 3, 4
+quartername    |Quarter name derived from the date field of the original data.
+               |Example: Q1, Q2, Q3, Q4
+
+
+
+Task 2 - Design the dimension table MyDimWaste
+
+Field Name
+---------------|-------------------------------------------------------------------------
+wastetypeid    |Primary Key - Id of the waste type
+wastetype      |Type of waste collected
+
+
+
+
+Task 3 - Design the dimension table MyDimZone
+
+Field Name
+---------------|-------------------------------------------------------------------------
+zoneid         |Primary Key - Id of the collection zone
+zonename       |Name of the Collection Zone
+city           |City where the waste is collected
+
+
+
+Task 4 - Design the fact table MyFactTrips
+
+Field Name
+---------------|-------------------------------------------------------------------------
+tripid         |Primary Key - Id of the trip (Trip number)
+wastetypeid    |Foreign Key - Id of the waste type
+zoneid         |Foreign Key - Id of the collection zone
+wastetons      |Waste collected in tons
